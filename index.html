@@ -2,6 +2,22 @@
 <html lang="es">
 	<script type="text/javascript" src="simpleCart.js"></script>
 	<script type="text/javascript" src="jquery.js"></script>
+	  <script>											//NECESITA TRABAJO
+		var menuNav_LastSelected = 'Entradas';
+		function menuNav(menuNav_Selected){
+			var x = document.getElementsByTagName(menuNav_LastSelected);
+			var i;
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = 'none';
+			}
+			x = document.getElementsByTagName(menuNav_Selected);
+			var i;
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = 'block';
+			}
+			menuNav_LastSelected = menuNav_Selected;
+		}
+	  </script>
 <header>
 </header>
 <head>
@@ -34,24 +50,24 @@
   <div class="Header"><h1>Restaurante "Polibar"</h1></div>
   <div class="MenuNav">
   <div class="MenuNav_Item",style='z-index: 1'>
-    <input type="button" class="MenuNav_Item" value="Entradas" id = "navButton" ></input></div>
+    <input type="button" class="MenuNav_Item" value="Entradas" id = "navButton" onclick="menuNav(value)"></div>
   <div class="MenuNav_Item",style='z-index: 2'>
-    <input type="button" class="MenuNav_Item"value="Pastas" id = "navButton" ></input></div>
+    <input type="button" class="MenuNav_Item"value="Pastas" id = "navButton" onclick="menuNav(value)"></div>
   <div class="MenuNav_Item",style='z-index: 3'>
-    <input type="button" class="MenuNav_Item"value="Bebidas" id = "navButton" ></input></div>
+    <input type="button" class="MenuNav_Item"value="Bebidas" id = "navButton" onclick="menuNav(value)"></div>
   </div>
-  
+
   <div class="MenuSection">
   
-	  <div class="MenuSection_Item" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
+	  <div class="MenuSection_Item" tag="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
+	  <div class="MenuSection_Item" tag="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
+	  <div class="MenuSection_Item" tag="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
+	  <div class="MenuSection_Item" tag="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
+	  <div class="MenuSection_Item" tag="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
+	  <div class="MenuSection_Item" tag="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
+	  <div class="MenuSection_Item" tag="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
+	  <div class="MenuSection_Item" tag="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
+	  <div class="MenuSection_Item" tag="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
   </div>
   
   
