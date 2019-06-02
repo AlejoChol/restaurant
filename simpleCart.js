@@ -87,7 +87,7 @@
 
 				// default options
 				settings = {
-					checkout				: { type: "PayPal", email: "you@yours.com" },
+					checkout				: { type: "SendForm", url: "checkout.php" },
 					currency				: "USD",
 					language				: "english-us",
 
