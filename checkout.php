@@ -7,9 +7,9 @@
 
 //Conexion a base de datos
 $dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-$dbname = "restaurant";
+$dbuser = 'poli_dos';
+$dbpass = '222';
+$dbname = "poli_dos";
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);  
 
 //Sube informacion a la base de datos

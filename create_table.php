@@ -2,9 +2,9 @@
 
 //Conexion a base de datos
 $dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-$dbname = "restaurant";
+$dbuser = 'poli_dos';
+$dbpass = '222';
+$dbname = "poli_dos";
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);  
 
 //Sube informacion a la base de datos
@@ -21,6 +21,11 @@ if(empty($result)) {
                           entregado VARCHAR (10),
                           )";
                 $result = mysqli_query($dbConnection, $query);
+}
+if($result){
+    echo "New record created successfully";
+} else {
+    echo "Error: <br>" . mysqli_error($conn);
 }
 
 
