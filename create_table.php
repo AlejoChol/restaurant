@@ -14,18 +14,13 @@ $query = "SELECT Id_pedido FROM pedidos";
 $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
-                $query = "CREATE TABLE pedidos (
+                $query = "CREATE TABLE IF NOT EXISTS pedidos (
                           Id_pedido int AUTO_INCREMENT KEY,
                           Id_mesa int,
                           fecha date,
                           entregado VARCHAR (10),
                           )";
-                $result = mysqli_query($dbConnection, $query);
-}
-if($result){
-    echo "New record created successfully";
-} else {
-    echo "Error: <br>" . mysqli_error($conn);
+                $result = mysqli_query($conn, $query);
 }
 
 
@@ -35,12 +30,12 @@ $query = "SELECT Id_pedido FROM pedido_detalle";
 $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
-                $query = "CREATE TABLE pedido_detalle (
+                $query = "CREATE TABLE IF NOT EXISTS pedido_detalle (
                           Id_pedido int,
                           Nombre VARCHAR (255),
                           Cant int,
                           Precio int,
                           )";
-                $result = mysqli_query($dbConnection, $query);
+                $result = mysqli_query($conn, $query);
 }
 ?>
