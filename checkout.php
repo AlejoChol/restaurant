@@ -7,8 +7,8 @@
 
 //Conexion a base de datos
 $dbhost = 'localhost';
-$dbuser = 'poli_dos';
-$dbpass = '222';
+$dbuser = 'poli_uno';
+$dbpass = 'poli1';
 $dbname = "poli_dos";
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);  
 

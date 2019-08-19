@@ -2,8 +2,8 @@
 
 //Conexion a base de datos
 $dbhost = 'localhost';
-$dbuser = 'poli_dos';
-$dbpass = '222';
+$dbuser = 'poli_uno';
+$dbpass = 'poli1';
 $dbname = "poli_dos";
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);  
 
@@ -18,7 +18,7 @@ if(empty($result)) {
                           Id_pedido int AUTO_INCREMENT KEY,
                           Id_mesa int,
                           fecha date,
-                          entregado VARCHAR (10),
+                          entregado VARCHAR (10)
                           )";
                 $result = mysqli_query($conn, $query);
 }
@@ -34,7 +34,7 @@ if(empty($result)) {
                           Id_pedido int,
                           Nombre VARCHAR (255),
                           Cant int,
-                          Precio int,
+                          Precio int
                           )";
                 $result = mysqli_query($conn, $query);
 }
