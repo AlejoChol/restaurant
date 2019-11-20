@@ -24,7 +24,7 @@ if(empty($result)) {
 }
 
 
-//TABLA pedido_detalle: Id_pedido, Nombre, Cant, Precio
+//TABLA pedido_detalle: Id_pedido, Nombre, Cant, detalles, Precio
 
 $query = "SELECT Id_pedido FROM pedido_detalle";
 $result = mysqli_query($conn, $query);
@@ -34,10 +34,12 @@ if(empty($result)) {
                           Id_pedido int,
                           Nombre VARCHAR (255),
                           Cant int,
+                          detalles VARCHAR(30),
                           Precio int
                           )";
                 $result = mysqli_query($conn, $query);
 }
+
 
 //TABLA menu: Id_orden, Nombre, Cant, Precio
 ?>
