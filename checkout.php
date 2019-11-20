@@ -50,6 +50,7 @@ for($i = 1;$i <= $items_Cant; $i++){
 	$Precio = ($_POST['item_price_'. $i]);
 	mysqli_query($conn, "INSERT INTO pedido_detalle (Id_pedido, Nombre, Cant, Precio) VALUES('$pedido_Num','$Nombre', '$Cant', '$Precio');");
 }
+header("Location: http://ags.com.ar/DOS/index.php?redirect=yes");
 
 ?>
 </body>

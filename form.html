@@ -1,0 +1,41 @@
+<html>
+<head>
+  <link rel="stylesheet" href="format_form.css">
+</head>
+<body>
+<form action="form.php" method="post">
+
+<h1>Ingrese los datos en el siguiente formulario</h1>
+<label for= "Nombre"><h2>Nombre</h2></label>
+<input type="text" id="Nombre" />
+
+
+<label for= "Apellido"><h2>Apellido</h2></label>
+<input type="text" id="Apellido" />
+
+<label for= "Sexo"><h2>Sexo</h2></label>
+<input type="radio" name="Sexo" value="male" id="Sexo" checked><label for= "Sexo">Masculino</label>
+<input type="radio" name="Sexo" value="female" id="Sexo"><label for= "Sexo">Femenino</label>
+
+<label for="Nac"><h2>Fecha de Nacimiento</h2></label>
+<input type="date" name="Nac">
+
+<label for="Edad"><h2>Edad</h2></label>
+<input type="number"  placeholder="Inserte la edad aqui" name="Edad">
+
+<label for="DNI"><h2>DNI</h2></label>
+<input type="number" id="DNI" />
+
+<h2>Curso</h2>
+<select>
+  <option id="Curso" value="6to Info"><h2>6to Info</h2></option>
+  <option id="Curso" value="6to TCO"><h2>6to TCO</h2></option>
+  <option id="Curso" value="6to Electro"><h2>6to Electro</h2></option>
+  <option id="Curso" value="6to Mec"><h2>6to Mec</h2></option>
+  <option id="Curso" value="6to Plantas"><h2>6to Plantas</h2></option>
+  <option id="Curso" value="6to Química"><h2>6to Química</h2></option>
+</select>
+<h2></h2>
+<input type="submit" value="submit" id = "submit" >
+</body>
+</html>

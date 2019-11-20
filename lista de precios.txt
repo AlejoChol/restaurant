@@ -1,0 +1,28 @@
+empanadas comunes: $25
+empanadas vegetarianas:	$30
+	-humita
+	-cebolla y queso
+	-roquefort
+	-margarita
+
+picada:	
+	-picada criolla	(x2) $350
+	-picada de frutos de mar $550
+	-picada vegetariana $400
+rabas:
+	-con provenzal $200
+	-con salsa picante $200
+	-con queso cheddar $250
+	
+
+salsa para pastas:
+	-pomarolla $100
+	-crema $100
+	-tuco $120
+	-filetto $100
+
+agua $80
+gaseosa $120
+pinta de cerveza $180
+copa de vino $120
+	

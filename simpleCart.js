@@ -96,7 +96,7 @@
 						{ attr: "name", label: "Nombre" },
 						{ attr: "price", label: "Precio", view: 'currency' },
 						{ attr: "quantity", label: "Cant." },
-						{ view: "remove", text: "Remover", label: false }
+						{ view: "remove", text: "<img src=\"Assets/Images/delete.jpg\" height=\"10px\" width=\"10px\">", label: false }
 					],
 
 					excludeFromCheckout	: ['thumb'],
@@ -589,7 +589,7 @@
 				},
 
 				remove: function (item, column) {
-					return "<a href='javascript:;' class='" + namespace + "_remove'>" + (column.text || "X") + "</a>";
+					return "<span href='javascript:;' class='" + namespace + "_remove'>" + (column.text || "X") + "</span>";
 				}
 			};
 

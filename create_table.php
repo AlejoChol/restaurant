@@ -38,4 +38,6 @@ if(empty($result)) {
                           )";
                 $result = mysqli_query($conn, $query);
 }
+
+//TABLA menu: Id_orden, Nombre, Cant, Precio
 ?>
