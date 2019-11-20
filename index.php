@@ -35,11 +35,11 @@
 				</div>      
 				<div class="simpleCart_shelfItem">
 					<h2 class="item_name">Empanadas</h2>
-					<select class="item_size">
-						<option value="jamon&Quesp"> Jamon y Queso </option>
-						<option value="carne"> Carne con Aceitunas </option>
-						<option value="carneDulce"> Carne Dulce </option>
-						<option value="arabe"> Empanada Arabe </option>
+					<select class="item_Relleno">
+						<option value="Jamon y Queso"> Jamon y Queso </option>
+						<option value="Carne con Aceitunas"> Carne con Aceitunas </option>
+						<option value="Carne Dulce"> Carne Dulce </option>
+						<option value="Empanada Arabe"> Empanada Arabe </option>
 					</select>
 					<input type="text" value="1" class="item_quantity">
 					<p>Precio: <span class="item_price">$25</span></p>
@@ -60,11 +60,11 @@
 				</div>      
 				<div class="simpleCart_shelfItem">
 					<h2 class="item_name">Empanadas Vegetarianas</h2>
-					<select class="item_size">
-						<option value="humita"> Humita </option>
-						<option value="cebolla&Queso"> Carne con Aceitunas </option>
-						<option value="roquefort"> Roquefort </option>
-						<option value="margarita"> Margarita </option>
+					<select class="item_Tipo">
+						<option value="Humita"> Humita </option>
+						<option value="Cebolla&Queso"> Carne con Aceitunas </option>
+						<option value="Roquefort"> Roquefort </option>
+						<option value="Margarita"> Margarita </option>
 					</select>
 					<input type="text" value="1" class="item_quantity">
 					<p>Precio: <span class="item_price">$50</span></p>
@@ -85,10 +85,10 @@
 				</div>      
 				<div class="simpleCart_shelfItem">
 					<h2 class="item_name">Picada</h2>
-					<select class="item_size">
-						<option value="criolla"> Picada Criolla </option>
-						<option value="frutosDeMar"> Picada de Frutos de Mar</option>
-						<option value="vegetariana"> Picada Vegetariana</option>
+					<select class="item_Tipo">
+						<option value="Criolla"> Picada Criolla </option>
+						<option value="Frutos De Mar"> Picada de Frutos de Mar</option>
+						<option value="Vegetariana"> Picada Vegetariana</option>
 					</select>
 					<input type="text" value="1" class="item_quantity">
 					<p>Precio: <span class="item_price">$420</span></p>
@@ -109,10 +109,10 @@
 				</div>      
 				<div class="simpleCart_shelfItem">
 					<h2 class="item_name">Rabas</h2>
-					<select class="item_size">
-						<option value="provenzal"> Con Provenzal </option>
-						<option value="salsaPicante"> Con salsa Picante </option>
-						<option value="cheddar"> Con Queso Cheddar </option>
+					<select class="item_Aderezo">
+						<option value="Provenzal"> Con Provenzal </option>
+						<option value="Salsa Picante"> Con salsa Picante </option>
+						<option value="Cheddar"> Con Queso Cheddar </option>
 					</select>
 					<input type="text" value="1" class="item_quantity">
 					<p>Precio: <span class="item_price">$220</span></p>
@@ -134,11 +134,11 @@
 				</div>      
 				<div class="simpleCart_shelfItem">
 					<h2 class="item_name">Farfalle</h2>
-					<select class="item_size">
-						<option value="pomarolla"> Con salsa Pomarolla </option>
-						<option value="crema"> Con Crema </option>
-						<option value="tuco"> Con salsa Tuco </option>
-						<option value="filetto"> Con salsa Filetto </option>
+					<select class="item_Salsa">
+						<option value="Pomarolla"> Con salsa Pomarolla </option>
+						<option value="Crema"> Con Crema </option>
+						<option value="Tuco"> Con salsa Tuco </option>
+						<option value="Filetto"> Con salsa Filetto </option>
 					</select>
 					<input type="text" value="1" class="item_quantity">
 					<p>Precio: <span class="item_price">$230</span></p>
@@ -159,11 +159,11 @@
 				</div>      
 				<div class="simpleCart_shelfItem">
 					<h2 class="item_name">Pasta bolognesa</h2>
-					<select class="item_size">
-						<option value="pomarolla"> Con salsa Pomarolla </option>
-						<option value="crema"> Con Crema </option>
-						<option value="tuco"> Con salsa Tuco </option>
-						<option value="filetto"> Con salsa Filetto </option>
+					<select class="item_Salsa">
+						<option value="Pomarolla"> Con salsa Pomarolla </option>
+						<option value="Crema"> Con Crema </option>
+						<option value="Tuco"> Con salsa Tuco </option>
+						<option value="Filetto"> Con salsa Filetto </option>
 					</select>
 					<input type="text" value="1" class="item_quantity">
 					<p>Precio: <span class="item_price">$250</span></p>
@@ -184,11 +184,11 @@
 				</div>      
 				<div class="simpleCart_shelfItem">
 					<h2 class="item_name">Penne</h2>
-					<select class="item_size">
-						<option value="pomarolla"> Con salsa Pomarolla </option>
-						<option value="crema"> Con Crema </option>
-						<option value="tuco"> Con salsa Tuco </option>
-						<option value="filetto"> Con salsa Filetto </option>
+					<select class="item_Salsa">
+						<option value="Pomarolla"> Con salsa Pomarolla </option>
+						<option value="Crema"> Con Crema </option>
+						<option value="Tuco"> Con salsa Tuco </option>
+						<option value="Filetto"> Con salsa Filetto </option>
 					</select>
 					<input type="text" value="1" class="item_quantity">
 					<p>Precio: <span class="item_price">$180</span></p>
@@ -209,11 +209,11 @@
 				</div>      
 				<div class="simpleCart_shelfItem">
 					<h2 class="item_name">Strozzapreti</h2>
-					<select class="item_size">
-						<option value="pomarolla"> Con salsa Pomarolla </option>
-						<option value="crema"> Con Crema </option>
-						<option value="tuco"> Con salsa Tuco </option>
-						<option value="filetto"> Con salsa Filetto </option>
+					<select class="item_Salsa">
+						<option value="Pomarolla"> Con salsa Pomarolla </option>
+						<option value="Crema"> Con Crema </option>
+						<option value="Tuco"> Con salsa Tuco </option>
+						<option value="Filetto"> Con salsa Filetto </option>
 					</select>
 					<input type="text" value="1" class="item_quantity">
 					<p>Precio: <span class="item_price">$250</span></p>
@@ -235,11 +235,11 @@
 				</div>      
 				<div class="simpleCart_shelfItem">
 					<h2 class="item_name">Gaseosa</h2>
-					<select class="item_size">
-						<option value="pomarolla"> Pomelo </option>
-						<option value="crema"> Fanta </option>
-						<option value="tuco"> Coca Cola </option>
-						<option value="filetto"> 7up </option>
+					<select class="item_Marca">
+						<option value="Pomelo"> Pomelo </option>
+						<option value="Fanta"> Fanta </option>
+						<option value="Coca Cola"> Coca Cola </option>
+						<option value="7up"> 7up </option>
 					</select>
 					<input type="text" value="1" class="item_quantity">
 					<p>Precio: <span class="item_price">$120</span></p>
@@ -260,8 +260,8 @@
 				</div>      
 				<div class="simpleCart_shelfItem">
 					<h2 class="item_name">Agua</h2>
-					<select class="item_size">
-						<option value="pomarolla"> Agua de la canilla </option>
+					<select class="item_Tipo">
+						<option value="Agua de la canilla"> Agua de la canilla </option>
 					</select>
 					<input type="text" value="1" class="item_quantity">
 					<p>Precio: <span class="item_price">$80</span></p>
@@ -282,12 +282,12 @@
 				</div>      
 				<div class="simpleCart_shelfItem">
 					<h2 class="item_name">Pinta de Cerveza</h2>
-					<select class="item_size">
-						<option value="pomarolla"> Heineken </option>
-						<option value="pomarolla"> Imperial </option>
-						<option value="pomarolla"> Schneider </option>
-						<option value="pomarolla"> Corona </option>
-						<option value="pomarolla"> Santa Fe </option>
+					<select class="item_Marca">
+						<option value="Heineken"> Heineken </option>
+						<option value="Imperial"> Imperial </option>
+						<option value="Schneider"> Schneider </option>
+						<option value="Corona"> Corona </option>
+						<option value="Santa Fe"> Santa Fe </option>
 					</select>
 					<input type="text" value="1" class="item_quantity">
 					<p>Precio: <span class="item_price">$180</span></p>
