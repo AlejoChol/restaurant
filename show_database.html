@@ -1,24 +1,32 @@
- <html>
+<html>
 <head>
+  <link rel="stylesheet" href="format_index.css">
+  <link rel="stylesheet" href="w3.css">
+</head>
 <script>
 function request_database() {
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("txtHint").innerHTML = this.responseText;
-			}
-		};
-		xmlhttp.open("GET", "show_database.php",false);
-		xmlhttp.send();
-	}
+    if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("txtHint").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET","show_database.php",true);
+    xmlhttp.send();
 }
 </script>
 </head>
 <body>
 
 <form>
-<button type='button' onClick="request_database()">
+<button onClick="request_database()">BOTON</button>
 </form>
-<p>Results: <span id="txtHint"></span></p>
+<div id="txtHint"></div>
 </body>
 </html> 

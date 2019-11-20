@@ -122,8 +122,12 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
-.Interact table:hover {
+.collapser table:hover {
   background-color: #afd1a9;
+}
+
+.collapsible {
+  display: none;
 }
 
 button {

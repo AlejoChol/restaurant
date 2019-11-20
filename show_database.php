@@ -6,6 +6,8 @@
 <body>
    <div class="Header"><h1>Restaurante "Polibar"</h1></div>
 <?php
+
+	echo	"hola";
 	ini_set('display_startup_errors',true);
 	error_reporting(E_ALL);
 	ini_set('display_errors',true);
@@ -33,7 +35,7 @@
 	
 	$ID_pedidoActual=0;
 	$numeroItem=0;
-	while ($row = $result2->fetch_assoc()){ //Nombre, Cant, Precio
+	while ($row = $result2->fetch_assoc()){ //Nombre, Cant, detalles, Precio
 		if($ID_pedidoActual != $row['Id_pedido']){
 			$ID_pedidoActual=$row['Id_pedido'];
 			$numeroItem=0;
@@ -62,15 +64,14 @@
 		$ID_pedidoActual=$row['Id_pedido'];
 
 
-		echo	"<table style='width:100%' class='interact'><tr>";
+		echo	"<table style='width:100%' class='collapser'><tr>";
 		echo	'<td>' . $row['Id_pedido']	 . '</td>';
 		echo	'<td>' . $row['Id_mesa']	 . '</td>';
 		echo	'<td>' . $row['fecha']		 . '</td>';
 		echo	'<td>' . $row['entregado']	 . '</td>';
-		echo	"<td>" . "<button class='collapsible'>Contenido del pedido</button>";
 		echo	'</tr></table>';
 
-		echo	"<table class='collapsible'style='width:90%'>"; 
+		echo	"<div class= 'collapsible'><table style='width:90%'>"; 
 
 		
 		if (!(array_key_exists($ID_pedidoActual, $pedidos_detalles))) {		//Si el pedido no tiene items del carrito (se hizo un pedido vacio)
@@ -89,8 +90,23 @@
 				echo	'</tr>';
 			}
 		}
-		echo '</table>';
+		echo '</table></div>';
 	}
 ?>
+<script>
+var coll = document.getElementsByClassName("collapser");
+var i;
 
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+} 
+</script>
 </body>
