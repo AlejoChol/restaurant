@@ -60,6 +60,7 @@
 		echo	'<td>' . $row['Id_mesa']	 . '</td>';
 		echo	'<td>' . $row['fecha']		 . '</td>';
 		echo	"<td><button onclick=\"CambiarEstado($ID_pedidoActual,'" .$row['entregado']. "');\" >" . $row['entregado']	 . '</button></td>';
+		echo	"<td><button onclick=\"BorrarPedido($ID_pedidoActual);\">Borrar Pedido</button>";
 		echo	'</tr></table>';
 
 		echo	"<div class= 'collapsible'><table style='width:90%'>"; 

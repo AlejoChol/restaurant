@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="w3.css">
   <script type="text/javascript" src="XmlHttpRequest.js"></script>
   <script>
-	var databaseDisplay_timer = setInterval(do_xhr, 1000,"GET","show_database.php",0,databaseDisplay_PosRequest);
+	var databaseDisplay_timer = setInterval(do_xhr, 3000,"GET","show_database.php",0,databaseDisplay_PosRequest);
 
 	function databaseDisplay(){
 		do_xhr("GET","show_database.php",0,databaseDisplay_PosRequest);
@@ -30,6 +30,11 @@
 	function CambiarEstado(PedidoActual_ID,PedidoActual_Estado){
 		var str="PedidoActual_ID="+PedidoActual_ID+"&PedidoActual_Estado="+PedidoActual_Estado;
 		do_xhr("GET","pedido_cambiarEstado.php",str,databaseDisplay);
+	}
+	
+	function BorrarPedido(PedidoActual_ID,PedidoActual_Estado){
+		var str="PedidoActual_ID="+PedidoActual_ID;
+		do_xhr("GET","pedido_BorrarPedido.php",str,databaseDisplay);
 	}
   </script>
 </head>
