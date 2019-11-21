@@ -2,31 +2,41 @@
 <head>
   <link rel="stylesheet" href="format_index.css">
   <link rel="stylesheet" href="w3.css">
-</head>
-<script>
-function request_database() {
-    if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    } else {
-        // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("txtHint").innerHTML = this.responseText;
-        }
-    };
-    xmlhttp.open("GET","show_database.php",true);
-    xmlhttp.send();
-}
-</script>
+  <script type="text/javascript" src="XmlHttpRequest.js"></script>
+  <script>
+	var databaseDisplay_timer = setInterval(do_xhr, 1000,"GET","show_database.php",0,databaseDisplay_PosRequest);
+
+	function databaseDisplay(){
+		do_xhr("GET","show_database.php",0,databaseDisplay_PosRequest);
+	}
+	function databaseDisplay_PosRequest(str){
+		document.getElementById("textObjective").innerHTML = str;
+		var coll = document.getElementsByClassName("collapser");
+		var i;
+  
+		for (i = 0; i < coll.length; i++) {
+			coll[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var content = this.nextElementSibling;
+			if (content.style.display === "block") {
+				content.style.display = "none";
+			} else {
+				content.style.display = "block";
+				}
+			});
+		} 
+	}
+
+	function CambiarEstado(PedidoActual_ID,PedidoActual_Estado){
+		var str="PedidoActual_ID="+PedidoActual_ID+"&PedidoActual_Estado="+PedidoActual_Estado;
+		do_xhr("GET","pedido_cambiarEstado.php",str,databaseDisplay);
+	}
+  </script>
 </head>
 <body>
 
-<form>
-<button onClick="request_database()">BOTON</button>
-</form>
-<div id="txtHint"></div>
+<div class="Header"><h1>Restaurante "Polibar"</h1></div>
+<div id="textObjective"></div>
 </body>
+
 </html> 

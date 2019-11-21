@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 <html lang="es">
 	<script type="text/javascript" src="simpleCart.js"></script>
 	<script type="text/javascript" src="jquery.js"></script>
