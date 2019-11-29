@@ -100,4 +100,22 @@ if(empty($result)) {
                 $result = mysqli_query($conn, $query);
 }
 
+//TABLA admins: id, username, password
+
+$query = "SELECT id FROM admins";
+$result = mysqli_query($conn, $query);
+
+if(empty($result)) {
+                $query = "CREATE TABLE IF NOT EXISTS `admins` (
+                          `id` int(11) NOT NULL AUTO_INCREMENT,
+                          `username` varchar(50) NOT NULL,
+                          `password` varchar(255) NOT NULL,
+                           PRIMARY KEY (`id`)
+                          )";
+                $result = mysqli_query($conn, $query);
+                //Crea una cuenta para usar de prueba. 
+                $query = "INSERT INTO `admins` (`id`, `username`, `password`) VALUES (1, 'test', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa')";
+                $result = mysqli_query($conn, $query);
+}
+
 ?>
