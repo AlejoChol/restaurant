@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
 <html lang="es">
 	<script type="text/javascript" src="simpleCart.js"></script>
 	<script type="text/javascript" src="jquery.js"></script>
@@ -322,7 +321,7 @@
 		";
 	}
 ?>
-  <div class="Header"><h1>Restaurante "Polibar"</h1></div>
+  <div class="Header"><div style="height:15%;"><button style="background-color: Transparent; background-repeat:no-repeat; border: none;cursor:pointer; overflow: hidden; outline:none;" onclick= "window.location.href = 'login.html' ;"></button></div><h1>Restaurante "Polibar"</h1></div>
   <div class="MenuNav">
   <div class="MenuNav_Item",style='z-index: 1'>
     <input type="button" class="MenuNav_Item" value="Entradas" id = "navButton" onclick="menuNav(this.value)"></div>

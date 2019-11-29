@@ -8,19 +8,8 @@
 	$dbpass = 'poli1';
 	$dbname = 'poli_dos';
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-
-	//Consigue todos los pedidos No entregados
-	$result = mysqli_query($conn,"SELECT * FROM pedidos WHERE entregado='No'");
-
-	//Arma un array de todos los Id de pedidos no entregados, para pedir sus detalles respectivos
 	
-	while ($row = $result->fetch_assoc()){
-		$Id_pedido_noEntregado[]=$row['Id_pedido'];
-	}
-
-	//Pide los detalles de cada pedido no entregado
-	
-	$result2 = mysqli_query($conn,'SELECT * FROM pedido_detalle WHERE Id_pedido IN (' . implode(',', array_map('intval', $Id_pedido_noEntregado)) . ')');
+	$result2 = mysqli_query($conn,'SELECT * FROM pedido_detalle');
 
 	//Array tridimensional, donde primer eje es el Id_pedido, el segundo es item y tercero es cada espicificacion del item
 	
