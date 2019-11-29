@@ -11,7 +11,7 @@ if ( mysqli_connect_errno() ) {
 }
 
 if ( !isset($_POST['username'], $_POST['password']) ) {
-	die ('Please fill both the username and password field!');
+	die ('Por favor llene el nombre de usuario y la contraseña!');
 }
 
 if ($stmt = $con->prepare('SELECT id, password FROM admins WHERE username = ?')) {
@@ -30,10 +30,10 @@ if ($stmt->num_rows > 0) {
 		$_SESSION['id'] = $id;
 		header('Location: show_database.php');
 	} else {
-		echo 'Incorrect password!';
+		echo 'Contraseña incorrecta!';
 	}
 } else {
-	echo 'Incorrect username!';
+	echo 'Nombre de usuario incorrecto!';
 }
 $stmt->close();
 ?>
