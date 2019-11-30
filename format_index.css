@@ -62,7 +62,7 @@ body{
   float: left;
   margin-left: 1%;
   margin-top: 1%;
-  height: 85%;
+  height: 80%;
   width: 100%;
   overflow-y: scroll;
 }
@@ -72,7 +72,7 @@ body{
   width: 100%;
   bottom: 0;
   position: absolute;
-  height: 15%
+  height: 20%
 }
 
 .item_quantity {
