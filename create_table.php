@@ -66,7 +66,7 @@ if(empty($result)) {
                           id_categoria int,
                           Nombre VARCHAR (40),
                           Precio int,
-                          ImgPath VARCHAR (40)
+                          ImgPath VARCHAR (120)
                           )";
                 $result = mysqli_query($conn, $query);
                 echo "Error: <br>" . mysqli_error($conn);
@@ -78,7 +78,7 @@ $query = "SELECT id_opcion FROM menu_opciones";
 $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
-                $query = "CREATE TABLE IF NOT EXISTS id_opcion (
+                $query = "CREATE TABLE IF NOT EXISTS menu_opciones (
                           id_opcion int AUTO_INCREMENT KEY,
                           id_item int,
                           Nombre VARCHAR (255)
@@ -92,7 +92,7 @@ $query = "SELECT id_opcionItem FROM menu_opcionesItem";
 $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
-                $query = "CREATE TABLE IF NOT EXISTS id_opcionItem (
+                $query = "CREATE TABLE IF NOT EXISTS menu_opcionesItem (
                           id_opcionItem int AUTO_INCREMENT KEY,
                           id_opcion int,
                           Nombre VARCHAR (255)
@@ -114,8 +114,8 @@ if(empty($result)) {
                           )";
                 $result = mysqli_query($conn, $query);
                 //Crea una cuenta para usar de prueba (user: test, password: test). 
-                $query = "INSERT INTO `admins` (`id`, `username`, `password`) VALUES (1, 'test', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa')";
-                $result = mysqli_query($conn, $query);
+                //$query = "INSERT INTO `admins` (`id`, `username`, `password`) VALUES (1, 'test', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa')";
+                //$result = mysqli_query($conn, $query);
 }
 
 ?>

@@ -9,30 +9,35 @@
 	$dbname = 'poli_dos';
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
-	//Consigue todas las categorias
+	
+
+	ini_set('display_errors', 1);
+	error_reporting(E_ALL ^ E_NOTICE);
+
+
+
+//Consigue todas las categorias
+//TABLA menu_categorias: id_categoria, Nombre
 	$resultCategorias = mysqli_query($conn,"SELECT * FROM menu_categorias");
 
 	while ($row = $resultCategorias->fetch_assoc()){
 		$menu_categorias[$row['id_categoria']]['Nombre']=$row['Nombre'];
 	}
 
-	//Consigue los items de todas las categorias
+//Consigue los items de todas las categorias
+//TABLA menu_items: id_item, id_categoria, Nombre, Precio, ImgPath
 	
 	$resultItems = mysqli_query($conn,"SELECT * FROM menu_items");
 
 	while ($row = $resultItems->fetch_assoc()){
-		$menu_items[$row['id_categoria']][] = $row['id_item'];
 
-		$idInterno = sizeof($menu_items[$row['id_categoria']]);
-
-		$menu_items[$row['id_categoria']][$idInterno]['Nombre']		=$row['Nombre'];
-		$menu_items[$row['id_categoria']][$idInterno]['Precio']		=$row['Precio'];
-		$menu_items[$row['id_categoria']][$idInterno]['ImgPath']	=$row['ImgPath'];
+		$menu_items[$row['id_categoria']][$row['id_item']]['Nombre']	=$row['Nombre'];
+		$menu_items[$row['id_categoria']][$row['id_item']]['Precio']	=$row['Precio'];
+		$menu_items[$row['id_categoria']][$row['id_item']]['ImgPath']	=$row['ImgPath'];
 	}
-	var_dump($menu_items);
 
 	//Consigue los items de todas las categorias
-	
+	/*
 	$resultOpciones = mysqli_query($conn,'SELECT * FROM menu_opciones');
 	
 	while ($row = $resultOpciones->fetch_assoc()){
@@ -42,7 +47,6 @@
 
 		$menu_opciones[$row['id_item']][$idInterno]['Nombre']		=$row['Nombre'];
 	}
-
 	//Consigue los items de todas las categorias
 	
 	$resultOpcionesItem = mysqli_query($conn,'SELECT * FROM menu_opcionesItem');
@@ -54,17 +58,20 @@
 
 		$menu_opcionesItem[$row['id_opcion']][$idInterno]['Nombre']		=$row['Nombre'];
 	}
+	*/
 
-	foreach($menu_items as $categoria){
-		foreach($categoria as $item){
-			$itemStr=$categoria."-".$item;
-			$itemPath=$menu_items[$categoria][$item]['ImgPath'];
-			$itemName=$menu_items[$categoria][$item]['Nombre'];
-			echo "<div class=\"MenuSection_Item\" name=\"$categoria\"";
-			echo "onclick=\"document.getElementById('$itemStr').style.display='block'\">";
+//Printea los items para MenuSection
+
+	foreach($menu_items as $categoriaID => $categoria){
+		foreach($categoria as $itemID => $item){
+			$itemStr=$categoriaID."-".$itemID;
+			$itemPath=$item['ImgPath'];
+			$itemName=$item['Nombre'];
+			echo "<div class=\"MenuSection_Item\" id=\"menu_$itemStr\" name=\"$categoriaID\" style=\"display:none\"";
+			echo "onclick=\"document.getElementById('item_$itemStr').style.display='block'\">";
 			echo "<img src=\"$itemPath\" alt=\"b8nhip9w6oj01.jpg\" width=\"100%\" height=\"80%\" style='padding: 8px 4px'>";
 			echo "<p>$itemName</p>";
-
+			echo "</div>";
 		}
 	}
 		

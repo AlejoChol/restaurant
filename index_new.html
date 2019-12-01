@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+	<script type="text/javascript" src="simpleCart.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="XmlHttpRequest.js"></script>
+	  <script>
+		var menuNav_LastSelected = '2';
+		
+		function menuNav(menuNav_Selected){
+			var x = document.getElementsByName(menuNav_LastSelected);
+			var i;
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = 'none';
+			}
+			x = document.getElementsByName(menuNav_Selected);
+			var i;
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = 'block';
+			}
+			menuNav_LastSelected = menuNav_Selected;
+		}
+
+		do_xhr("GET","index_MenuSection.php",0,index_MenuSection_DisplayPosRequest);
+		function index_MenuSection_DisplayPosRequest(str){
+			document.getElementById("MenuSection").innerHTML = str;
+			do_xhr("GET","index_MenuNav.php",0,index_MenuNav_DisplayPosRequest);
+		}
+		function index_MenuNav_DisplayPosRequest(str){
+			document.getElementById("MenuNav").innerHTML = str;
+			menuNav(1);
+		}
+		
+		do_xhr("GET","index_items.php",0,index_items_DisplayPosRequest);
+		function index_items_DisplayPosRequest(str){
+			document.getElementsByTagName("body")[0].innerHTML += str;
+		}
+
+	  </script>
+<head>
+  <link rel="stylesheet" href="format_index.css">
+  <link rel="stylesheet" href="w3.css">
+</head>
+<body>
+  <div class="Header"><div style="height:15%;"><button style="background-color: Transparent; background-repeat:no-repeat; border: none;cursor:pointer; overflow: hidden; outline:none;" onclick= "window.location.href = 'login.html' ;"></button></div><h1>Restaurante "Polibar"</h1></div>
+  <div class="MenuNav" id="MenuNav">
+  </div>
+
+  <div class="MenuSection" id="MenuSection">
+  </div>
+  
+  
+  <div class="MenuAside" id="MenuAside">
+	<div class="MenuAside_Header"> <span class="simpleCart_items"></span></div>
+	<div class="MenuAside_Footer">
+		Total: <span class="simpleCart_total"></span><br>
+		<a href="javascript:;" class="simpleCart_checkout" style="text-decoration:none"><div class="MenuAside_Checkout"><label>CHECKOUT</label></div></a>
+		<a href="javascript:;" class="simpleCart_empty" style="text-decoration:none"><div class="MenuAside_Delete"><label>BORRAR</label></div></a>
+	</div>
+  </div>
+</body>
+<footer>
+</footer>
+</html>

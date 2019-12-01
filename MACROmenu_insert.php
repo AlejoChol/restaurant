@@ -19,20 +19,35 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 $error=0;
 
-if(mysqli_query($conn,"INSERT INTO menu_items (id_categoria, Nombre, Precio, ImgPath) VALUES('0','Empanadas','$25','Assets/Images/Entradas/EmpanadasArabes.jpg');")){
+/*
+//INSERTAR DATO
+//TABLA menu_opciones: id_opcion, id_item, Nombre
+//TABLA menu_opcionesItem: id_opcionItem, id_opcion, Nombre
+if(mysqli_query($conn,"INSERT INTO menu_opciones (id_item, Nombre) VALUES('1','Relleno');")){
     echo "New record created successfully";
 } else {
 	$error=1;
     echo "Error: <br>" . mysqli_error($conn);
-}  
+}
+*/
 
-
-if(mysqli_query($conn,"INSERT INTO menu_items (id_categoria, Nombre, Precio, ImgPath) VALUES('1','Farfalle','$230','Assets/Images/Pastas/Farfalle.jpg');")){
+/*
+//MODIFICAR COLUMNA
+if(mysqli_query($conn,"ALTER TABLE menu_items MODIFY COLUMN ImgPath VARCHAR(120);")){
     echo "New record created successfully";
 } else {
 	$error=1;
     echo "Error: <br>" . mysqli_error($conn);
-}  
+}*/
+
+/*
+//MODIFICAR DATO
+if(mysqli_query($conn,"UPDATE menu_items SET id_categoria = '2' WHERE id_categoria='1'")){
+    echo "New record created successfully";
+} else {
+	$error=1;
+    echo "Error: <br>" . mysqli_error($conn);
+}*/
 
 
 ?>
