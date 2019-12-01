@@ -37,28 +37,6 @@
 	}
 
 	//Consigue los items de todas las categorias
-	/*
-	$resultOpciones = mysqli_query($conn,'SELECT * FROM menu_opciones');
-	
-	while ($row = $resultOpciones->fetch_assoc()){
-		$menu_opciones[$row['id_item']][] = $row['id_opcion'];
-
-		$idInterno = sizeof($menu_opciones[$row['id_item']]);
-
-		$menu_opciones[$row['id_item']][$idInterno]['Nombre']		=$row['Nombre'];
-	}
-	//Consigue los items de todas las categorias
-	
-	$resultOpcionesItem = mysqli_query($conn,'SELECT * FROM menu_opcionesItem');
-
-	while ($row = $resultOpcionesItem->fetch_assoc()){
-		$menu_opcionesItem[$row['id_opcion']][] = $row['id_opcionItem'];
-
-		$idInterno = sizeof($menu_opcionesItem[$row['id_opcion']]);
-
-		$menu_opcionesItem[$row['id_opcion']][$idInterno]['Nombre']		=$row['Nombre'];
-	}
-	*/
 
 //Printea los items para MenuSection
 

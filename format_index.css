@@ -122,6 +122,16 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
+.Table_ID{
+  width: 5%;
+  text-align: center;
+}
+.Table_Name{
+  width: 55%;
+  text-align: left;
+}
+
+
 .collapser table:hover {
   background-color: #afd1a9;
 }

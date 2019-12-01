@@ -1,0 +1,37 @@
+<html>
+<head>
+  <link rel="stylesheet" href="format_index.css">
+  <link rel="stylesheet" href="w3.css">
+  <script type="text/javascript" src="XmlHttpRequest.js"></script>
+  <script>
+	//var databaseDisplay_timer = setInterval(do_xhr, 3000,"GET","menuDatabase_getItems.php",0,databaseDisplay_PosRequest);
+
+	//function databaseDisplay(){
+	do_xhr("GET","menuDatabase_getItems.php",0,databaseDisplay_PosRequest);
+	//}
+	function databaseDisplay_PosRequest(str){
+		document.getElementById("textObjective").innerHTML = str;
+		var coll = document.getElementsByClassName("collapser");
+		var i;
+  
+		for (i = 0; i < coll.length; i++) {
+			coll[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var content = this.nextElementSibling;
+			if (content.style.display === "block") {
+				content.style.display = "none";
+			} else {
+				content.style.display = "block";
+				}
+			});
+		} 
+	}
+  </script>
+</head>
+<body>
+
+<div class="Header"><h1>Restaurante "Polibar"</h1></div>
+<div id="textObjective"></div>
+</body>
+
+</html> 
