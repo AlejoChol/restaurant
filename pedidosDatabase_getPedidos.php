@@ -49,36 +49,45 @@
 	
 	while ($row = $result->fetch_assoc()){
 
-		$ID_pedidoActual=$row['Id_pedido'];
+		$pedidoActual_Id_pedido=$row['Id_pedido'];
+		$pedidoActual_Estado=$row['entregado'];
+		$pedidoActual_Id_mesa=$row['Id_mesa'];
+		$pedidoActual_fecha=$row['fecha'];
 
 
-		echo	"<table style='width:100%' class='collapser'><tr>";
-		echo	"<td>$row['Id_pedido']</td>";
-		echo	"<td>$row['Id_mesa']</td>";
-		echo	"<td>$row['fecha']</td>";
-		echo	"<td><button onclick=\"CambiarEstado($ID_pedidoActual,'" .$row['entregado']. "');\" >" . $row['entregado']	 . '</button></td>';
-		echo	"<td><button onclick=\"BorrarPedido($ID_pedidoActual);\">Borrar Pedido</button>";
-		echo	'</tr></table>';
-
-		echo	"<div class= 'collapsible'><table style='width:90%'>"; 
+		echo	"<table class=\"MenuSection_Item\" style=\"width:100%\"><tr>";
+		echo	"<td>$pedidoActual_Id_pedido</td>";
+		echo	"<td>$pedidoActual_Id_mesa</td>";
+		echo	"<td>$pedidoActual_fecha</td>";
+		echo	"<td><button class=\"w3-btn w3-blue\" onclick=\"VerPedido($pedidoActual_ID);\">Ver Pedido</button>";
+		if($pedidoActual_Estado=='Si'){
+			echo	"<td><button class=\"w3-btn w3-green\" onclick=\"CambiarEstado($pedidoActual_ID,'$pedidoActual_Estado');\" >$pedidoActual_Estado</button></td>";
+		}
+		else{
+			echo	"<td><button class=\"w3-btn w3-red\" onclick=\"CambiarEstado($pedidoActual_ID,'$pedidoActual_Estado');\" >$pedidoActual_Estado</button></td>";
+		}
+		
+		echo	"<td><button class=\"w3-btn w3-orange\" onclick=\"BorrarPedido($pedidoActual_ID);\">Borrar Pedido</button>";
+		echo	"</tr></table>";
+		/*echo	"<div class= 'collapsible'><table style='width:90%'>"; 
 
 		
-		if (!(array_key_exists($ID_pedidoActual, $pedidos_detalles))) {		//Si el pedido no tiene items del carrito (se hizo un pedido vacio)
+		if (!(array_key_exists($pedidoActual_ID, $pedidos_detalles))) {		//Si el pedido no tiene items del carrito (se hizo un pedido vacio)
 			echo	'<tr>';
 			echo	'<td>' . "Vacio" . '</td>';
 			echo	'</tr>';
 		}
 
 		else{
-			for ($i = 0; $i < count($pedidos_detalles[$ID_pedidoActual]); $i++){
+			for ($i = 0; $i < count($pedidos_detalles[$pedidoActual_ID]); $i++){
 				echo	'<tr>';
-				echo	'<td>' . $pedidos_detalles[$ID_pedidoActual][$i]['Nombre'] . '</td>';
-				echo	'<td>' . $pedidos_detalles[$ID_pedidoActual][$i]['Cant'] . '</td>';
-				echo	'<td>' . $pedidos_detalles[$ID_pedidoActual][$i]['detalles'] . '</td>';
-				echo	'<td>' . $pedidos_detalles[$ID_pedidoActual][$i]['Precio'] . '</td>';
+				echo	'<td>' . $pedidos_detalles[$pedidoActual_ID][$i]['Nombre'] . '</td>';
+				echo	'<td>' . $pedidos_detalles[$pedidoActual_ID][$i]['Cant'] . '</td>';
+				echo	'<td>' . $pedidos_detalles[$pedidoActual_ID][$i]['detalles'] . '</td>';
+				echo	'<td>' . $pedidos_detalles[$pedidoActual_ID][$i]['Precio'] . '</td>';
 				echo	'</tr>';
 			}
 		}
-		echo '</table></div>';
+		echo '</table></div>';*/
 	}
 ?>
