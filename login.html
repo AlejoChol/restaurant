@@ -9,15 +9,26 @@
 	<body>
 		<div class="login">
 			<h1>Login</h1>
-			<form action="authenticate.php" method="post">
+			<form method="POST" action="authenticate.php">
+				
 				<label for="username">
 					<i class="fas fa-user"></i>
 				</label>
 				<input type="text" name="username" placeholder="Username" id="username" required>
+				
 				<label for="password">
 					<i class="fas fa-lock"></i>
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required>
+				
+				<label for="page">
+					<i class="fas fa-box"></i>
+				</label>  
+				<select name="page" id="page">
+					<option value="pedidos" selected>Ver pedidos</option>
+					<option value="menu">Editar menu</option>
+				</select>
+		
 				<input type="submit" value="Login">
 			</form>
 		</div>
