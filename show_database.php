@@ -46,8 +46,6 @@
 	}
 	
 	$result = mysqli_query($conn,"SELECT * FROM pedidos");
-		
-		echo '<div class="Header"><div style="height:15%;"><button style="background-color: Transparent; background-repeat:no-repeat; border: none;cursor:pointer; overflow: hidden; outline:none;" onclick= "logout.php"></button></div><h1>Restaurante "Polibar"</h1></div>';
 	
 	while ($row = $result->fetch_assoc()){
 

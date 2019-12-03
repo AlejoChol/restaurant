@@ -28,7 +28,7 @@ if ($stmt->num_rows > 0) {
 		$_SESSION['loggedin'] = TRUE;
 		$_SESSION['name'] = $_POST['username'];
 		$_SESSION['id'] = $id;
-		header('Location: show_database.php');
+		header('Location: show_database.html');
 	} else {
 		echo 'Contraseña incorrecta!';
 	}
