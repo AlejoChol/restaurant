@@ -146,8 +146,8 @@
 		if(mysqli_query($conn,"INSERT INTO menu_categorias (Nombre) VALUES('$categoriaNombre');")){
 			$categoriaID=mysqli_insert_id($conn);
 
-			echo	"<div class=\"MenuSection_Item\" style=\"width:97%; height:auto\">";
-			echo	"<table style='width:100%' class=\"w3-table\"><tr class=\"w3-teal\" id=\"menu_$categoriaID\">";
+			echo	"<div class=\"MenuSection_Item\" style=\"width:97%; height:auto\" id=\"menu_$categoriaID\">";
+			echo	"<table style='width:100%' class=\"w3-table\"><tr class=\"w3-teal\" >";
 			echo	"<td class=\"w3-text-white\" style=\"width: 10%;  vertical-align: text-bottom;\" name=\"ID\">$categoriaID</td>";
 			echo	"<td class=\"w3-text-white\" style=\"width: 60%;  vertical-align: text-bottom;\" name=\"Name\">$categoriaNombre</td>";
 			echo	"<td><button class=\"w3-btn w3-round w3-white\" style=\"line-height: 60%;\" onclick=\"Categoria_Editar('$categoriaID');\">Editar Categoria</button></td>";
@@ -185,7 +185,7 @@
 		if(mysqli_query($conn,"INSERT INTO menu_items (id_categoria, Nombre, Precio, ImgPath) VALUES('$categoriaID','$itemNombre',$itemPrecio,'$itemImgPath');")){
 			$itemID=mysqli_insert_id($conn);
 
-			echo 	"<tr id=\"item_$itemID\">";
+			echo 	"<tr id=\"Item_$itemID\">";
 			echo	"<td name=\"ID\" style=\"width:5%\">$itemID</td>";
 			echo	"<td name=\"Name\" style=\"width:35%\">$itemNombre</td>";
 			echo	"<td name=\"ImgPath\" style=\"width:55%\">$itemImgPath</td>";
