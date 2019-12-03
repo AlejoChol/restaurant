@@ -28,7 +28,7 @@
 	foreach($menu_categorias as $categoriaID => $categoria){
 		$categoriaName=$categoria['Nombre'];
 		echo "<div class=\"MenuNav_Item\" id=\"nav_$categoriaID\" style=\"z-index: $categoriaID\">";
-		echo "<input type=\"button\" class=\"MenuNav_Item\" value=\"$categoriaName\" id = \"$categoriaID\"onclick=\"menuNav(this.id)\"></div>";
+		echo "<input type=\"button\" class=\"w3-btn w3-teal\" style=\"width:100%;\"value=\"$categoriaName\" id = \"$categoriaID\"onclick=\"menuNav(this.id)\"></div>";
 	}
 		
 	

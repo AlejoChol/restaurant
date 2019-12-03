@@ -43,7 +43,7 @@ while ($row = $resultOpciones->fetch_assoc()){
 $resultOpcionesItem = mysqli_query($conn,'SELECT * FROM menu_opcionesItem');
 
 while ($row = $resultOpcionesItem->fetch_assoc()){
-	$menu_opcionesItem[$row['id_opcion']]['id_opcionItem']['Nombre'] = $row['Nombre'];
+	$menu_opcionesItem[$row['id_opcion']][$row['id_opcionItem']]['Nombre'] = $row['Nombre'];
 }
 
 foreach($menu_items as $items_ID => $item){
@@ -58,23 +58,31 @@ foreach($menu_items as $items_ID => $item){
 
 	echo "<div class=\"MenuSection_Item\"><p><img src=\"$item_ImgPath\" alt=\"65711492-man-looks-at-burger-with-gun.jpg\" width=\"100%\" height=\"100%\"></p></div>";
 
-	echo "<div class=\"simpleCart_shelfItem\"><h2 class=\"$item_Nombre\">$item_Nombre</h2>";
-	
-	foreach($menu_opciones[$items_ID] as $opcion_ID => $opcion){
-		$opcion_Nombre = "item_".$opcion['Nombre'];
-		echo "<select class=\"$opcion_Nombre\">";
-		foreach($menu_opcionesItem[$opcion_ID] as $opcion_ItemID => $opcionItem){
-			$opcionItem_Nombre=$opcionItem['Nombre'];
-			echo "<option value=\"$opcionItem_Nombre\"> $opcionItem_Nombre </option>";
+	echo "<div class=\"simpleCart_shelfItem\"><h2 class=\"item_name\">$item_Nombre</h2>";
+
+	echo "<p class=\"w3-text-black w3-half\">Precio: <span class=\"item_price\">$$item_Precio</span></p><br>";
+
+	if(array_key_exists($items_ID,$menu_opciones)){
+		foreach($menu_opciones[$items_ID] as $opcion_ID => $opcion){
+			if(array_key_exists($opcion_ID,$menu_opcionesItem)){
+				echo "<div class=\"w3-third\">";
+				$opcion_Nombre=$opcion['Nombre'];
+				echo "<label class=\"w3-text-black\">$opcion_Nombre</label>";
+				$opcion_Nombre = "item_"+$opcion_Nombre;
+				echo "<select class=\"$opcion_Nombre w3-select\">";
+				foreach($menu_opcionesItem[$opcion_ID] as $opcion_ItemID => $opcionItem){
+					$opcionItem_Nombre=$opcionItem['Nombre'];
+					echo "<option value=\"$opcionItem_Nombre\"> $opcionItem_Nombre </option>";
+				}
+				echo "</select>";
+				echo "</div>";
+			}
 		}
-		echo "</select>";
 	}
 
-	echo "<input type=\"text\" value=\"1\" class=\"item_quantity\">";
+	echo "<div class=\"w3-third\"><label class=\"w3-text-black\">Cantidad</label><input type=\"text\" value=\"1\" class=\"item_quantity w3-input\"></div>";
 
-	echo "<p>Precio: <span class=\"item_price\">$$item_Precio</span></p>";
-
-	echo "<a class=\"item_add\" href=\"javascript:;\"> Agregar a la orden</a><input type=\"button\" class=\"item_add\" value=\" Add to Cart \" id = \" Add to Cart \" href=\"javascript:;\" ></input>";
+	echo "<input type=\"button\" class=\"item_add  w3-btn w3-block w3-green\" value=\" Agregar al Carro \" id = \" Add to Cart \" href=\"javascript:;\" ></input>";
 
 	echo "</div></div></div></div>";
 }
