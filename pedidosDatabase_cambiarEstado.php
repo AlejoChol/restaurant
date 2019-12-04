@@ -24,7 +24,7 @@
         $strToOutput="<button class=\"w3-btn w3-block w3-round w3-green\" onclick=\"Pedido_CambiarEstado($PedidoActual_ID,'$PedidoNuevo_Estado');\" >$PedidoNuevo_Estado</button>";
     }
 
-    if(!mysqli_query($conn,"UPDATE pedidos SET entregado = '$PedidoNuevo_Estado' WHERE id_pedido = $PedidoActual_ID")){
+    if(mysqli_query($conn,"UPDATE pedidos SET entregado = '$PedidoNuevo_Estado' WHERE id_pedido = $PedidoActual_ID")){
         echo $strToOutput;
     }
     else{

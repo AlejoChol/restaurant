@@ -15,7 +15,7 @@ $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
                 $query = "CREATE TABLE IF NOT EXISTS pedidos (
-                          Id_pedido int AUTO_INCREMENT KEY,
+                          Id_pedido int PRIMARY KEY AUTO_INCREMENT,
                           Id_mesa int,
                           fecha date,
                           entregado VARCHAR (10)
@@ -24,19 +24,19 @@ if(empty($result)) {
 }
 
 
-//TABLA pedido_detalle: Id_pedido, Nombre, Cant, detalles, Precio
+//TABLA pedido_detalle: id_detalle, Id_pedido, Nombre, Cant, detalles, Precio
 
 $query = "SELECT Id_pedido FROM pedido_detalle";
 $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
                 $query = "CREATE TABLE IF NOT EXISTS pedido_detalle (
-                          Id_pedido int,
-                          Nombre VARCHAR (255),
-                          Cant int,
-                          detalles VARCHAR(30),
-                          Precio int
-                          )";
+                            Id_pedido int,
+                            Nombre VARCHAR (255),
+                            Cant int,
+                            detalles VARCHAR(30),
+                            Precio int
+                            )";
                 $result = mysqli_query($conn, $query);
 }
 
@@ -46,10 +46,10 @@ $query = "SELECT id_categoria FROM menu_categorias";
 $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
-                $query = "CREATE TABLE IF NOT EXISTS menu_categorias (
-                          id_categoria int AUTO_INCREMENT KEY,
-                          Nombre VARCHAR (255)
-                          )";
+                $query = " CREATE TABLE IF NOT EXISTS menu_categorias (
+                            id_categoria int PRIMARY KEY AUTO_INCREMENT,
+                            Nombre VARCHAR (255)
+                            )";
                 $result = mysqli_query($conn, $query);
 }
 
@@ -62,12 +62,12 @@ if(empty($result)) {
     
                 echo "Error: <br>" . mysqli_error($conn);
                 $query = "CREATE TABLE IF NOT EXISTS menu_items (
-                          id_item int AUTO_INCREMENT KEY,
-                          id_categoria int,
-                          Nombre VARCHAR (40),
-                          Precio int,
-                          ImgPath VARCHAR (120)
-                          )";
+                            id_item PRIMARY KEY AUTO_INCREMENT,
+                            id_categoria int,
+                            Nombre VARCHAR (40),
+                            Precio int,
+                            ImgPath VARCHAR (120)
+                            )";
                 $result = mysqli_query($conn, $query);
                 echo "Error: <br>" . mysqli_error($conn);
 }
@@ -79,10 +79,10 @@ $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
                 $query = "CREATE TABLE IF NOT EXISTS menu_opciones (
-                          id_opcion int AUTO_INCREMENT KEY,
-                          id_item int,
-                          Nombre VARCHAR (255)
-                          )";
+                            id_opcion PRIMARY KEY AUTO_INCREMENT,
+                            id_item int,
+                            Nombre VARCHAR (255)
+                            )";
                 $result = mysqli_query($conn, $query);
 }
 
@@ -93,10 +93,10 @@ $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
                 $query = "CREATE TABLE IF NOT EXISTS menu_opcionesItem (
-                          id_opcionItem int AUTO_INCREMENT KEY,
-                          id_opcion int,
-                          Nombre VARCHAR (255)
-                          )";
+                            id_opcionItem PRIMARY KEY AUTO_INCREMENT,
+                            id_opcion int,
+                            Nombre VARCHAR (255)
+                            )";
                 $result = mysqli_query($conn, $query);
 }
 
@@ -107,15 +107,15 @@ $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
                 $query = "CREATE TABLE IF NOT EXISTS `admins` (
-                         `id` int(11) NOT NULL AUTO_INCREMENT,
-                         `username` varchar(50) NOT NULL,
-                          `password` varchar(255) NOT NULL,
-                           PRIMARY KEY (`id`)
-                          ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8" ;
+                            `id` int(11) NOT NULL AUTO_INCREMENT,
+                            `username` varchar(50) NOT NULL,
+                            `password` varchar(255) NOT NULL,
+                             PRIMARY KEY (`id`)
+                            ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8" ;
                 $result = mysqli_query($conn, $query);
                 //Crea una cuenta para usar de prueba (user: test, password: test). 
-                $query = "INSERT INTO `admins` (`id`, `username`, `password`) VALUES (1, 'test', '$2y$10$5wYj/B/WaF8hPztjDxpf9uaDylQhyTr6M0EI2O57liU3mYJU7iowa')";
-                $result = mysqli_query($conn, $query);
+                //$query = "INSERT INTO `admins` (`id`, `username`, `password`) VALUES (1, 'test', '$2y$10$5wYj/B/WaF8hPztjDxpf9uaDylQhyTr6M0EI2O57liU3mYJU7iowa')";
+                //$result = mysqli_query($conn, $query);
 }
 
 ?>

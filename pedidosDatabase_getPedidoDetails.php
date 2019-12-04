@@ -17,7 +17,7 @@
 	$dbname = 'poli_dos';
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
-	$pedidoActual_Id_pedido=$_POST['Id_pedido'];
+	$pedidoActual_Id_pedido=$_POST['PedidoActual_ID'];
 	
 	$result2 = mysqli_query($conn,"SELECT * FROM pedido_detalle WHERE Id_pedido='$pedidoActual_Id_pedido'");
 
@@ -42,40 +42,43 @@
 		$numeroItem++;
 	}
 	
-	$result = mysqli_query($conn,"SELECT * FROM pedidos");
-	
-	while ($row = $result->fetch_assoc()){
+	$result = mysqli_query($conn,"SELECT * FROM pedidos WHERE Id_pedido='$pedidoActual_Id_pedido'");
 
-		$ID_pedidoActual=$row['Id_pedido'];
+	echo	"<table style=\"width:100%\" class=\"w3-table w3-striped\" id=\"pedido\">";
 
-
-		echo	"<table style='width:100%' class='collapser'><tr>";
-		echo	'<td>' . $row['Id_pedido']	 . '</td>';
-		echo	'<td>' . $row['Id_mesa']	 . '</td>';
-		echo	'<td>' . $row['fecha']		 . '</td>';
-		echo	"<td><button onclick=\"CambiarEstado($ID_pedidoActual,'" .$row['entregado']. "');\" >" . $row['entregado']	 . '</button></td>';
-		echo	"<td><button onclick=\"BorrarPedido($ID_pedidoActual);\">Borrar Pedido</button>";
-		echo	'</tr></table>';
-
-		echo	"<div class= 'collapsible'><table style='width:90%'>"; 
-
-		
-		if (!(array_key_exists($ID_pedidoActual, $pedidos_detalles))) {		//Si el pedido no tiene items del carrito (se hizo un pedido vacio)
-			echo	'<tr>';
-			echo	'<td>' . "Vacio" . '</td>';
-			echo	'</tr>';
-		}
-
-		else{
-			for ($i = 0; $i < count($pedidos_detalles[$ID_pedidoActual]); $i++){
-				echo	'<tr>';
-				echo	'<td>' . $pedidos_detalles[$ID_pedidoActual][$i]['Nombre'] . '</td>';
-				echo	'<td>' . $pedidos_detalles[$ID_pedidoActual][$i]['Cant'] . '</td>';
-				echo	'<td>' . $pedidos_detalles[$ID_pedidoActual][$i]['detalles'] . '</td>';
-				echo	'<td>' . $pedidos_detalles[$ID_pedidoActual][$i]['Precio'] . '</td>';
-				echo	'</tr>';
-			}
-		}
-		echo '</table></div>';
+	$pedidoActual_Id_mesa=$row['Id_mesa'];
+	$pedidoActual_fecha=$row['fecha'];
+	$pedidoActual_entregado=$row['entregado'];
+	echo	"<tr id=\"pedido_$pedidoActual_Id_pedido\" class=\"w3-teal\">";
+	echo	"<td style=\"width:5%\" name=\"Id_pedido\">$pedidoActual_Id_pedido</td>";
+	echo	"<td style=\"width:40%\" name=\"Id_mesa\">$pedidoActual_Id_mesa</td>";
+	echo	"<td style=\"width:15%\" name=\"fecha\">$pedidoActual_fecha</td>";
+	echo	"<td style=\"width:15%\"><button class=\"w3-btn w3-block w3-round w3-blue\" style\"line-height: 60%;\" onclick=\"Pedido_VerDetalles($pedidoActual_Id_pedido);\">Ver Detalles</button>";
+	if($pedidoActual_entregado=='Si'){
+		echo	"<td style=\"width:5%\" name=\"entregado\"><button class=\"w3-btn w3-block w3-round w3-green\" style\"line-height: 60%;\" onclick=\"Pedido_CambiarEstado($pedidoActual_Id_pedido,'$pedidoActual_entregado');\" >$pedidoActual_entregado</button></td>";
 	}
+	else{
+		echo	"<td style=\"width:5%\" name=\"entregado\"><button class=\"w3-btn w3-block w3-round w3-yellow\" style\"line-height: 60%;\" onclick=\"Pedido_CambiarEstado($pedidoActual_Id_pedido,'$pedidoActual_entregado');\" >$pedidoActual_entregado</button></td>";
+	}
+	echo	"<td style=\"width:10%\"><button class=\"w3-btn w3-block w3-round w3-red\" style\"line-height: 60%;\" onclick=\"Pedido_BorrarPedido($pedidoActual_Id_pedido);\">Borrar Pedido</button>";
+	echo	"</tr>";
+	echo	"</table>";
+
+	echo	"<table style=\"width:100%\" class=\"w3-table w3-striped\" id=\"pedidoDetalleList\">";
+	if (!(array_key_exists($pedidoActual_Id_pedido, $pedidos_detalles))) {		//Si el pedido no tiene items del carrito (se hizo un pedido vacio)
+		echo	"<tr>";
+		echo	"<td>Vacio</td>";
+		echo	"</tr>";
+	}
+	else{
+		for ($i = 0; $i < count($pedidos_detalles); $i++){
+			echo	"<tr>";
+			echo	"<td style=\"width:30%\">" . $pedidos_detalles[$i]['Nombre'] . "</td>";
+			echo	"<td style=\"width:10%\">" . $pedidos_detalles[$i]['Cant'] . "</td>";
+			echo	"<td style=\"width:50%\">" . $pedidos_detalles[$i]['detalles'] . "</td>";
+			echo	"<td style=\"width:10%\">" . $pedidos_detalles[$i]['Precio'] . "</td>";
+			echo	"</tr>";
+		}
+	}
+	echo '</table></div>';
 ?>

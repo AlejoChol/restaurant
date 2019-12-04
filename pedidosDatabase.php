@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="w3.css">
   <script type="text/javascript" src="XmlHttpRequest.js"></script>
   <script>
-	var databaseDisplay_timer = setInterval(do_xhr, 3000,"GET","pedidosDatabase_getPedidos.php",0,databaseDisplay_PosRequest);
+	//var databaseDisplay_timer = setInterval(do_xhr, 3000,"GET","pedidosDatabase_getPedidos.php",0,databaseDisplay_PosRequest);
 
 	var PUBLIC_displayLocation;
 
@@ -48,14 +48,14 @@
 		}
 		var str="PedidoActual_ID="+PedidoActual_ID+"&PedidoNuevo_Estado="+PedidoNuevo_Estado;
 		PUBLIC_displayLocation="pedido_"+PedidoActual_ID;
-		do_xhr("POST","pedido_cambiarEstado.php",str,Display_MenuSection_CambiarEstado);
+		do_xhr("POST","pedidosDatabase_cambiarEstado.php",str,Display_MenuSection_CambiarEstado);
 
 	}
 	
 	function Pedido_BorrarPedido(PedidoActual_ID){
 		var str="PedidoActual_ID="+PedidoActual_ID;
 		PUBLIC_displayLocation="pedido_"+PedidoActual_ID;
-		do_xhr("POST","pedido_BorrarPedido.php",str,Display_MenuSection_Borrar);
+		do_xhr("POST","pedidosDatabase_BorrarPedido.php",str,Display_MenuSection_Borrar);
 	}
 	function Display_MenuSection_Borrar(str){
 		var NodeToRemove=document.getElementById(PUBLIC_displayLocation);
@@ -64,17 +64,16 @@
 	}
 	function Display_MenuSection_CambiarEstado(str){
 		var NodeToChange=document.getElementById(PUBLIC_displayLocation).querySelector("[name=\"entregado\"]");
-		NodeToChange.innerHTML += str;
+		NodeToChange.innerHTML = str;
 	}
 
 	function Pedido_VerDetalles(PedidoActual_ID){
-		//var str="PedidoActual_ID="+PedidoActual_ID;
-		//PUBLIC_displayLocation="pedido_"+PedidoActual_ID;
-		//do_xhr("POST","pedido_BorrarPedido.php",str,Display_Borrar);
+		var str="PedidoActual_ID="+PedidoActual_ID;
+		do_xhr("POST","pedidosDatabase_getPedidoDetails.php",str,Display_MenuAside);
 	}
-	function Display_MenuAside_CambiarEstado(str){/*
-		var NodeToChange=document.getElementById(PUBLIC_displayLocation).querySelector("[name=\"entregado\"]");
-		NodeToChange.innerHTML += str;*/
+	function Display_MenuAside(str){
+		var NodeToChange=document.getElementById("detalles");
+		NodeToChange.innerHTML = str;
 	}
 
 
@@ -86,7 +85,7 @@
 
 <div class="Header"><div style="height:15%;"><button style="background-color: Transparent; background-repeat:no-repeat; border: none;cursor:pointer; overflow: hidden; outline:none;" onclick= "window.location.href = 'logout.php' ;"></button></div><h1>Restaurante "Polibar"</h1></div>
 <div id="textObjective" class="MenuSection" style="width:70%;height:82%"></div>
-<div id="detalles" class="MenuAside" style="width:28%;height:82s%"></div>
+<div id="detalles" class="MenuAside" style="width:28%;height:82%"></div>
 </body>
 
 </html> 
