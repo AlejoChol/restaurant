@@ -67,9 +67,9 @@ foreach($menu_items as $items_ID => $item){
 			if(array_key_exists($opcion_ID,$menu_opcionesItem)){
 				echo "<div class=\"w3-third\">";
 				$opcion_Nombre=$opcion['Nombre'];
+				$opcion_NombreWithoutSpaces=preg_replace('/\s+/', '-', $opcion_Nombre);
 				echo "<label class=\"w3-text-black\">$opcion_Nombre</label>";
-				$opcion_Nombre = "item_"+$opcion_Nombre;
-				echo "<select class=\"$opcion_Nombre w3-select\">";
+				echo "<select class=\"item_$opcion_NombreWithoutSpaces w3-select\">";
 				foreach($menu_opcionesItem[$opcion_ID] as $opcion_ItemID => $opcionItem){
 					$opcionItem_Nombre=$opcionItem['Nombre'];
 					echo "<option value=\"$opcionItem_Nombre\"> $opcionItem_Nombre </option>";

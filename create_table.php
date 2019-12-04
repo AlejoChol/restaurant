@@ -16,7 +16,7 @@ $result = mysqli_query($conn, $query);
 if(empty($result)) {
                 $query = "CREATE TABLE IF NOT EXISTS pedidos (
                           Id_pedido int PRIMARY KEY AUTO_INCREMENT,
-                          Id_mesa int,
+                          Id_mesa VARCHAR (255),
                           fecha date,
                           entregado VARCHAR (10)
                           )";
@@ -34,7 +34,7 @@ if(empty($result)) {
                             Id_pedido int,
                             Nombre VARCHAR (255),
                             Cant int,
-                            detalles VARCHAR(30),
+                            detalles VARCHAR(255),
                             Precio int
                             )";
                 $result = mysqli_query($conn, $query);

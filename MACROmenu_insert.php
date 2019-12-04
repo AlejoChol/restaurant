@@ -23,7 +23,7 @@ $error=0;
 //INSERTAR DATO
 //TABLA menu_opciones: id_opcion, id_item, Nombre
 //TABLA menu_opcionesItem: id_opcionItem, id_opcion, Nombre
-if(mysqli_query($conn,"INSERT INTO menu_opciones (id_item, Nombre) VALUES('1','Relleno');")){
+/*if(mysqli_query($conn,"INSERT INTO menu_opciones (id_item, Nombre) VALUES('1','Relleno');")){
     echo "New record created successfully";
 } else {
 	$error=1;
@@ -40,12 +40,12 @@ if(mysqli_query($conn,"INSERT INTO menu_opcionesItem (id_opcion, Nombre) VALUES(
 } else {
 	$error=1;
     echo "Error: <br>" . mysqli_error($conn);
-}
+}*/
 
 
-/*
+
 //MODIFICAR COLUMNA
-if(mysqli_query($conn,"ALTER TABLE menu_items MODIFY COLUMN ImgPath VARCHAR(120);")){
+/*if(mysqli_query($conn,"ALTER TABLE pedidos MODIFY COLUMN Id_mesa VARCHAR (255);")){
     echo "New record created successfully";
 } else {
 	$error=1;

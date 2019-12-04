@@ -23,7 +23,6 @@
 
 	//Array tridimensional, donde primer eje es el Id_pedido, el segundo es item y tercero es cada espicificacion del item
 	
-	$pedidoActual_Id_pedido=0;
 	$numeroItem=0;
 	while ($row = $result2->fetch_assoc()){ //Id_pedido, Nombre, Cant, detalles, Precio
 
@@ -45,27 +44,19 @@
 	$result = mysqli_query($conn,"SELECT * FROM pedidos WHERE Id_pedido='$pedidoActual_Id_pedido'");
 
 	echo	"<table style=\"width:100%\" class=\"w3-table w3-striped\" id=\"pedido\">";
-
+	$row = $result->fetch_assoc();
 	$pedidoActual_Id_mesa=$row['Id_mesa'];
 	$pedidoActual_fecha=$row['fecha'];
 	$pedidoActual_entregado=$row['entregado'];
 	echo	"<tr id=\"pedido_$pedidoActual_Id_pedido\" class=\"w3-teal\">";
-	echo	"<td style=\"width:5%\" name=\"Id_pedido\">$pedidoActual_Id_pedido</td>";
-	echo	"<td style=\"width:40%\" name=\"Id_mesa\">$pedidoActual_Id_mesa</td>";
-	echo	"<td style=\"width:15%\" name=\"fecha\">$pedidoActual_fecha</td>";
-	echo	"<td style=\"width:15%\"><button class=\"w3-btn w3-block w3-round w3-blue\" style\"line-height: 60%;\" onclick=\"Pedido_VerDetalles($pedidoActual_Id_pedido);\">Ver Detalles</button>";
-	if($pedidoActual_entregado=='Si'){
-		echo	"<td style=\"width:5%\" name=\"entregado\"><button class=\"w3-btn w3-block w3-round w3-green\" style\"line-height: 60%;\" onclick=\"Pedido_CambiarEstado($pedidoActual_Id_pedido,'$pedidoActual_entregado');\" >$pedidoActual_entregado</button></td>";
-	}
-	else{
-		echo	"<td style=\"width:5%\" name=\"entregado\"><button class=\"w3-btn w3-block w3-round w3-yellow\" style\"line-height: 60%;\" onclick=\"Pedido_CambiarEstado($pedidoActual_Id_pedido,'$pedidoActual_entregado');\" >$pedidoActual_entregado</button></td>";
-	}
-	echo	"<td style=\"width:10%\"><button class=\"w3-btn w3-block w3-round w3-red\" style\"line-height: 60%;\" onclick=\"Pedido_BorrarPedido($pedidoActual_Id_pedido);\">Borrar Pedido</button>";
+	echo	"<td style=\"width:10%\" name=\"Id_pedido\">$pedidoActual_Id_pedido</td>";
+	echo	"<td style=\"width:60%\" name=\"Id_mesa\">$pedidoActual_Id_mesa</td>";
+	echo	"<td style=\"width:30%\" name=\"fecha\">$pedidoActual_fecha</td>";
 	echo	"</tr>";
 	echo	"</table>";
 
 	echo	"<table style=\"width:100%\" class=\"w3-table w3-striped\" id=\"pedidoDetalleList\">";
-	if (!(array_key_exists($pedidoActual_Id_pedido, $pedidos_detalles))) {		//Si el pedido no tiene items del carrito (se hizo un pedido vacio)
+	if (!(isset($pedidos_detalles))) {		//Si el pedido no tiene items del carrito (se hizo un pedido vacio)
 		echo	"<tr>";
 		echo	"<td>Vacio</td>";
 		echo	"</tr>";

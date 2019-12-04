@@ -21,7 +21,7 @@ if ($_SERVER['REMOTE_ADDR'] == "127.0.0.1") {
    $mesa = 1;
 }
 else {
-	$mesa = 0;
+	$mesa = $_SERVER['REMOTE_ADDR'];
 }											//Id de la mesa q realizo el pedido. 0 si no entiende q mesa es
 
 $fecha = date ('Y-m-d');					//Fecha del pedido
@@ -54,7 +54,7 @@ for($i = 1;$i <= $items_Cant; $i++){
 	mysqli_query($conn, "INSERT INTO pedido_detalle (Id_pedido, Nombre, Cant, detalles, Precio) VALUES('$pedido_Num','$Nombre', '$Cant','$Detalle', '$Precio');");
 }
 if(!$error){
-	header("Location: http://ags.com.ar/DOS/index.php?redirect=yes");
+	header("Location: http://ags.com.ar/DOS/index.html");
 }
 ?>
 </body>
