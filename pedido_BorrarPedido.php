@@ -12,7 +12,7 @@
     if(isset($_GET['PedidoActual_ID'])){
     $pedidoACambiar_ID=$_GET["PedidoActual_ID"];
     }
-    
+
     
     $sql = "DELETE FROM pedidos WHERE id_pedido = $pedidoACambiar_ID";
 

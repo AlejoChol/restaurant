@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	//Chequea que el chef tenga la sesión iniciada
+	if (!isset($_SESSION['loggedin'])) {
+		header('Location: index.html');
+		exit();
+	}
+?>
 <html>
 <head>
 <link rel="stylesheet" href="w3.css">
@@ -45,7 +53,7 @@
 		var containerInit=document.createElement("div");
 		var containerBase=CreateFormTemplate(containerInit);
 
-		var categoriaFullID="Categoria_"+categoriaID;
+		var categoriaFullID="menu_"+categoriaID;
 
 		var FormElement=document.createElement("form");
 		FormElement.id="categoria_form";
@@ -339,7 +347,7 @@
 </head>
 <body>
 
-<div class="Header"><h1>Restaurante "Polibar"</h1></div>
+<div class="Header"><div style="height:15%;"><button style="background-color: Transparent; background-repeat:no-repeat; border: none;cursor:pointer; overflow: hidden; outline:none;" onclick= "window.location.href = 'logout.php' ;"></button></div><h1>Restaurante "Polibar"</h1></div>
 <div id="textObjective"></div>
 </body>
 

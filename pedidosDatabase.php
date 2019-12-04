@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	//Chequea que el chef tenga la sesión iniciada
+	if (!isset($_SESSION['loggedin'])) {
+		header('Location: index.html');
+		exit();
+	}
+?>
+
 <html>
 <head>
   <link rel="stylesheet" href="format_index.css">

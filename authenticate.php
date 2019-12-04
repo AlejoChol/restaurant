@@ -31,10 +31,10 @@ if ($stmt->num_rows > 0) {
 		$page = $_POST['page'];
 		
 		if($page == 'pedidos'){
-			header('Location: show_database.html');
+			header('Location: pedidosDatabase.php');
 		}
 		else{
-			header('Location: menuDatabase.html');
+			header('Location: menuDatabase.php');
 		}
 		
 	} else {

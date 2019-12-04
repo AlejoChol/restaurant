@@ -2,8 +2,10 @@
 <html lang="es">
 	<script type="text/javascript" src="simpleCart.js"></script>
 	<script type="text/javascript" src="jquery.js"></script>
-	  <script>											//NECESITA TRABAJO
-		var menuNav_LastSelected = 'Entradas';
+	<script type="text/javascript" src="XmlHttpRequest.js"></script>
+	  <script>
+		var menuNav_LastSelected = '2';
+		
 		function menuNav(menuNav_Selected){
 			var x = document.getElementsByName(menuNav_LastSelected);
 			var i;
@@ -17,65 +19,42 @@
 			}
 			menuNav_LastSelected = menuNav_Selected;
 		}
+
+		do_xhr("GET","index_MenuSection.php",0,index_MenuSection_DisplayPosRequest);
+		function index_MenuSection_DisplayPosRequest(str){
+			document.getElementById("MenuSection").innerHTML = str;
+			do_xhr("GET","index_MenuNav.php",0,index_MenuNav_DisplayPosRequest);
+		}
+		function index_MenuNav_DisplayPosRequest(str){
+			document.getElementById("MenuNav").innerHTML = str;
+			menuNav(1);
+		}
+		
+		do_xhr("GET","index_items.php",0,index_items_DisplayPosRequest);
+		function index_items_DisplayPosRequest(str){
+			document.getElementsByTagName("body")[0].innerHTML += str;
+		}
+
 	  </script>
-<header>
-</header>
 <head>
   <link rel="stylesheet" href="format_index.css">
   <link rel="stylesheet" href="w3.css">
-  
-  <div id="id01" class="w3-modal">
-  <div class="w3-modal-content w3-animate-zoom">
-    <div class="w3-container">
-      <span onclick="document.getElementById('id01').style.display='none'" 
-      class="w3-button w3-display-topright">&times;</span>
-	 <div class="MenuSection_Item"><p><img src="b8nhip9w6oj01.jpg" alt="65711492-man-looks-at-burger-with-gun.jpg" width="219" height="271"></p></div>      <div class="simpleCart_shelfItem">
-			<h2 class="item_name">KillerBurger</h2>
-			<select class="item_Tipo">
-				<option value="Small"> Pequeña </option>
-				<option value="Medium"> Mediana </option>
-				<option value="Large"> Grande </option>
-			</select>
-			<input type="text" value="1" class="item_quantity">
-			<p>Precio: <span class="item_price">$35.99</span></p>
-			<a class="item_add" href="javascript:;"> Agregar a la orden</a>
-			<input type="button" class="item_add" value=" Add to Cart " id = " Add to Cart " href="javascript:;" ></input>
-		</div>
-	</div>
-  </div>
-</div>
-
 </head>
 <body>
-  <div class="Header"><h1>Restaurante "Polibar"</h1></div>
-  <div class="MenuNav">
-  <div class="MenuNav_Item",style='z-index: 1'>
-    <input type="button" class="MenuNav_Item" value="Entradas" id = "navButton" onclick="menuNav(this.value)"></div>
-  <div class="MenuNav_Item",style='z-index: 2'>
-    <input type="button" class="MenuNav_Item"value="Pastas" id = "navButton" onclick="menuNav(this.value)"></div>
-  <div class="MenuNav_Item",style='z-index: 3'>
-    <input type="button" class="MenuNav_Item"value="Bebidas" id = "navButton" onclick="menuNav(this.value)"></div>
+  <div class="Header"><div style="height:15%;"><button style="background-color: Transparent; background-repeat:no-repeat; border: none;cursor:pointer; overflow: hidden; outline:none;" onclick= "window.location.href = 'login.html' ;"></button></div><h1>Restaurante "Polibar"</h1></div>
+  <div class="MenuNav" id="MenuNav">
   </div>
 
-  <div class="MenuSection">
-  
-	  <div class="MenuSection_Item" name="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" name="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" name="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" name="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" name="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" name="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" name="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" name="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
-	  <div class="MenuSection_Item" name="Entradas" onclick="document.getElementById('id01').style.display='block'"><img src="65711492-man-looks-at-burger-with-gun.jpg" alt="b8nhip9w6oj01.jpg" width="100%" height="80%" style='padding: 8px 4px'><p>Killerburger</p></div>
+  <div class="MenuSection" id="MenuSection">
   </div>
   
   
-  <div class="MenuAside">
+  <div class="MenuAside" id="MenuAside">
 	<div class="MenuAside_Header"> <span class="simpleCart_items"></span></div>
 	<div class="MenuAside_Footer">
-		<a href="javascript:;" class="simpleCart_checkout" style="text-decoration:none"><div class="MenuAside_Checkout"><label>CHECKOUT</label></div></a>
-		<a href="javascript:;" class="simpleCart_empty" style="text-decoration:none"><div class="MenuAside_Delete"><label>BORRAR</label></div></a>
+		Total: <span class="simpleCart_total"></span><br>
+		<a href="javascript:;" class="simpleCart_checkout" style="text-decoration:none"><div class="w3-btn w3-block w3-green w3-right" style="z-index:1" ><label>CHECKOUT</label></div></a>
+		<a href="javascript:;" class="simpleCart_empty" style="text-decoration:none"><div class="w3-btn w3-block w3-red w3-right" style="z-index:2"><label>BORRAR</label></div></a>
 	</div>
   </div>
 </body>
