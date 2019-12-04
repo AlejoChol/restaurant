@@ -59,13 +59,13 @@ function item_editar($itemID){
 	if(!$isOptionsEmpty){
 		foreach($menu_opciones as $opcionID => $opcionData){
 			$opcionNombre=$menu_opciones[$opcionID]['Nombre'];
-			echo "<div style=\"margin-left: 1%; margin-top: 1%;\" id=\"opcion_$opcionID\" >";
+			echo "<div style=\"margin-left: 1%; margin-top: 1%;\" >";
 			echo "<table class=\"w3-table \">";
-			echo "<tr class=\"w3-green\">";
-			echo "<td name=\"ID\"><input type=\"hidden\" name=\"ID\" value=\"$opcionID\">$opcionID</td>";
-			echo "<td name=\"Name\"><input type=\"text\" name=\"Name\" value=\"$opcionNombre\"></input></td>";
-			echo "<td><button class=\"w3-btn w3-block w3-round w3-btn w3-padding-small w3-light-blue\"style=\"line-height:70%;\"onclick=\"Opcion_Editar('opcion_$opcionID');\">Editar</button></td>";
-			echo "<td><button class=\"w3-btn w3-block w3-round w3-btn w3-padding-small w3-red\"style=\"line-height:70%;\"onclick=\"Opcion_Borrar('$opcionID');\">&times;</button></td>";
+			echo "<tr class=\"w3-green\" id=\"opcion_$opcionID\">";
+			echo "<td style=\"width: 10%\" name=\"ID\"><input type=\"hidden\" name=\"ID\" value=\"$opcionID\">$opcionID</td>";
+			echo "<td style=\"width: 50%\" name=\"Name\"><input type=\"text\" name=\"Name\" value=\"$opcionNombre\"></input></td>";
+			echo "<td style=\"width: 20%\"><button class=\"w3-btn w3-block w3-round w3-btn w3-padding-small w3-light-blue\"style=\"line-height:70%;\"onclick=\"Opcion_Editar('opcion_$opcionID');\">Editar</button></td>";
+			echo "<td style=\"width: 20%\"><button class=\"w3-btn w3-block w3-round w3-btn w3-padding-small w3-red\"style=\"line-height:70%;\"onclick=\"Opcion_Borrar('$opcionID');\">&times;</button></td>";
 			echo "</tr>";
 			echo "</table>";
 			echo "<button class=\"w3-btn w3-block w3-round w3-btn w3-padding-small w3-orange\"style=\"height:auto;\"onclick=\"OpcionItem_Agregar('$opcionID');\">Agregar Item</button>";
@@ -74,10 +74,10 @@ function item_editar($itemID){
 				foreach($menu_opcionesItem[$opcionID] as $opcionItemID => $opcionItemData){
 					$opcionItemNombre=$opcionItemData['Nombre'];
 					echo "<tr id=\"opcionItem_$opcionItemID\">";
-					echo "<td name=\"ID\"><input type=\"hidden\" name=\"ID\" value=\"$opcionItemID\"></input>$opcionItemID</td>";
-					echo "<td name=\"Name\"><input type=\"text\" name=\"Name\" value=\"$opcionItemNombre\"></input></td>";
-					echo "<td><button class=\"w3-btn w3-block w3-round w3-btn w3-padding-small w3-light-blue\"style=\"line-height:70%;\"onclick=\"OpcionItem_Editar('opcionItem_$opcionItemID');\">Editar</button></td>";
-					echo "<td><button class=\"w3-btn w3-block w3-round w3-btn w3-padding-small w3-red\"style=\"line-height:70%;\"onclick=\"OpcionItem_Borrar('$opcionItemID');\">&times;</button></td>";
+					echo "<td style=\"width: 10%\"name=\"ID\"><input type=\"hidden\" name=\"ID\" value=\"$opcionItemID\"></input>$opcionItemID</td>";
+					echo "<td style=\"width: 50%\"name=\"Name\"><input type=\"text\" name=\"Name\" value=\"$opcionItemNombre\"></input></td>";
+					echo "<td style=\"width: 20%\"><button class=\"w3-btn w3-block w3-round w3-btn w3-padding-small w3-light-blue\"style=\"line-height:70%;\"onclick=\"OpcionItem_Editar('opcionItem_$opcionItemID');\">Editar</button></td>";
+					echo "<td style=\"width: 20%\"><button class=\"w3-btn w3-block w3-round w3-btn w3-padding-small w3-red\"style=\"line-height:70%;\"onclick=\"OpcionItem_Borrar('$opcionItemID');\">&times;</button></td>";
 					echo "</tr>";
 				}
 			}

@@ -77,7 +77,7 @@
 		$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 		
 		if(mysqli_query($conn,"UPDATE menu_categorias SET Nombre = '$CategoriaName' WHERE id_categoria='$CategoriaID'")){
-			echo "New record created successfully";
+			echo "Edicion Exitosa";
 		} else {
 			$error=1;
 			echo "Error: <br>" . mysqli_error($conn);
@@ -93,7 +93,7 @@
 		$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 		
 		if(mysqli_query($conn,"UPDATE menu_items SET Nombre = '$ItemName', Precio='$ItemPrecio', ImgPath='$ItemImgPath' WHERE id_item='$ItemID'")){
-			echo "New record created successfully";
+			echo "Edicion Exitosa";
 		} else {
 			$error=1;
 			echo "Error: <br>" . mysqli_error($conn);
@@ -107,11 +107,9 @@
 		$dbpass = 'poli1';
 		$dbname = 'poli_dos';
 		$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-
-		echo $OpcionName;
 		
 		if(mysqli_query($conn,"UPDATE menu_opciones SET Nombre = '$OpcionName' WHERE id_opcion='$OpcionID'")){
-			echo "New record created successfully";
+			echo "Edicion Exitosa";
 		} else {
 			$error=1;
 			echo "Error: <br>" . mysqli_error($conn);
@@ -127,7 +125,7 @@
 		$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 		
 		if(mysqli_query($conn,"UPDATE menu_opcionesItem SET Nombre = '$opcionItemName' WHERE id_opcionItem='$opcionItemID'")){
-			echo "New record created successfully";
+			echo "Edicion Exitosa";
 		} else {
 			$error=1;
 			echo "Error: <br>" . mysqli_error($conn);
@@ -275,7 +273,7 @@
 		$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 		
 		if(mysqli_query($conn,"DELETE FROM menu_categorias WHERE id_categoria='$CategoriaID'")){
-			echo "New record created successfully";
+			echo "Borrado Exitoso";
 		} else {
 			$error=1;
 			echo "Error: <br>" . mysqli_error($conn);
@@ -291,7 +289,7 @@
 		$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 		
 		if(mysqli_query($conn,"DELETE FROM menu_items WHERE id_item='$ItemID'")){
-			echo "New record created successfully";
+			echo "Borrado Exitoso";
 		} else {
 			$error=1;
 			echo "Error: <br>" . mysqli_error($conn);
@@ -308,7 +306,7 @@
 		echo $OpcionName;
 		
 		if(mysqli_query($conn,"DELETE FROM menu_opciones WHERE id_opcion='$OpcionID'")){
-			echo "New record created successfully";
+			echo "Borrado Exitoso";
 		} else {
 			$error=1;
 			echo "Error: <br>" . mysqli_error($conn);
@@ -324,7 +322,7 @@
 		$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 		
 		if(mysqli_query($conn,"DELETE FROM menu_opcionesItem WHERE id_opcionItem='$opcionItemID'")){
-			echo "New record created successfully";
+			echo "Borrado Exitoso";
 		} else {
 			$error=1;
 			echo "Error: <br>" . mysqli_error($conn);

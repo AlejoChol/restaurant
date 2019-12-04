@@ -53,7 +53,7 @@
 		var containerInit=document.createElement("div");
 		var containerBase=CreateFormTemplate(containerInit);
 
-		var categoriaFullID="menu_"+categoriaID;
+		var categoriaFullID="Categoria_"+categoriaID;
 
 		var FormElement=document.createElement("form");
 		FormElement.id="categoria_form";
@@ -206,21 +206,21 @@
 //----------------------------------------------------------------------------------------------------
 	function Categoria_Agregar(){
 		PUBLIC_displayLocation="Lista_Categoria";
-		do_xhr('POST',"menuDatabase_editDatabase.php","action=categoria_agregar",Agregar_Display);
+		do_xhr('POST',"menuDatabase_editDatabase.php","action=categoria_agregar",Agregar_Display_Div);
 	}
 	function Item_Agregar(ID){
 		PUBLIC_displayLocation="ItemList_"+ID;
-		do_xhr('POST',"menuDatabase_editDatabase.php",("action=item_agregar&ID="+ID),Agregar_Display);
+		do_xhr('POST',"menuDatabase_editDatabase.php",("action=item_agregar&ID="+ID),Agregar_Display_Table);
 	}
 	
 	function Opcion_Agregar(ID){
 		PUBLIC_displayLocation="OptionList_"+ID;
-		do_xhr('POST',"menuDatabase_editDatabase.php",("action=opcion_agregar&ID="+ID),Agregar_Display);
+		do_xhr('POST',"menuDatabase_editDatabase.php",("action=opcion_agregar&ID="+ID),Agregar_Display_Div);
 	}
 	
 	function OpcionItem_Agregar(ID){
 		PUBLIC_displayLocation="OptionItemList_"+ID;
-		do_xhr('POST',"menuDatabase_editDatabase.php",("action=opcionItem_agregar&ID="+ID),Agregar_Display);
+		do_xhr('POST',"menuDatabase_editDatabase.php",("action=opcionItem_agregar&ID="+ID),Agregar_Display_Table);
 	}
 //----------------------------------------------------------------------------------------------------
 //BORRAR DE LA BASE DE DATOS
@@ -247,28 +247,29 @@
 
 
 
-	function Agregar_Display(str){
+	function Agregar_Display_Table(str){
   		console.log(PUBLIC_displayLocation);
-		document.getElementById(PUBLIC_displayLocation).innerHTML+=str;
 
+		var newcontent = document.createElement('table');
+		newcontent.innerHTML = str;
+			
+		while (newcontent.firstChild) {
+			document.getElementById(PUBLIC_displayLocation).appendChild(newcontent.firstChild);
+		}
 
-		var coll = document.getElementsByName("collapser");
-		var i;
-		for (i = 0; i < coll.length; i++) {
-			coll[i].addEventListener("click", function() {
-			this.classList.toggle("active");
-			var content = this.nextElementSibling;
-			if (content.style.display != "none") {
-				content.style.display = "none";
-				this.innerHTML="&or;";
-			} else {
-				content.style.display = "block";
-				this.innerHTML="&and;";
-				}
-			});
-		} 
 	}
 
+	function Agregar_Display_Div(str){
+  		console.log(PUBLIC_displayLocation);
+
+		var newcontent = document.createElement('div');
+		newcontent.innerHTML = str;
+			
+		while (newcontent.firstChild) {
+			document.getElementById(PUBLIC_displayLocation).appendChild(newcontent.firstChild);
+		}
+
+	}
 	function Borrar_Display(str){
 		var NodeToRemove=document.getElementById(PUBLIC_displayLocation);
 		NodeToRemove.parentNode.removeChild(NodeToRemove);
