@@ -271,7 +271,7 @@
 
 	function Borrar_Display(str){
 		var NodeToRemove=document.getElementById(PUBLIC_displayLocation);
-		NodeToRemove.parentNode.removeChild(NodeToRemove)
+		NodeToRemove.parentNode.removeChild(NodeToRemove);
 		alert(str);
 	}
 

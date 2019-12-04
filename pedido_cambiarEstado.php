@@ -9,27 +9,31 @@
 	$dbname = 'poli_dos';
     $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
-    if(isset($_GET['PedidoActual_ID'])){
-    $pedidoACambiar_ID=$_GET["PedidoActual_ID"];
+    if(isset($_POST['PedidoActual_ID'])){
+    $PedidoActual_ID=$_POST["PedidoActual_ID"];
     }
-    if(isset($_GET['PedidoActual_Estado'])){
-    $pedidoACambiar_estadoActual=$_GET["PedidoActual_Estado"];
+    if(isset($_POST['PedidoNuevo_Estado'])){
+    $PedidoNuevo_Estado=$_POST["PedidoNuevo_Estado"];
     }
 
 
-    if($pedidoACambiar_estadoActual=='No'){
-        $pedidoACambiar_estadoResultante='Si';
+    if($PedidoNuevo_Estado=='No'){
+        $strToOutput="<button class=\"w3-btn w3-block w3-round w3-yellow\" onclick=\"Pedido_CambiarEstado($PedidoActual_ID,'$PedidoNuevo_Estado');\" >$PedidoNuevo_Estado</button>";
     }
-    else if($pedidoACambiar_estadoActual=='Si'){
-        $pedidoACambiar_estadoResultante='No';
+    else if($PedidoNuevo_Estado=='Si'){
+        $strToOutput="<button class=\"w3-btn w3-block w3-round w3-green\" onclick=\"Pedido_CambiarEstado($PedidoActual_ID,'$PedidoNuevo_Estado');\" >$PedidoNuevo_Estado</button>";
+    }
+
+    if(!mysqli_query($conn,"UPDATE pedidos SET entregado = '$PedidoNuevo_Estado' WHERE id_pedido = $PedidoActual_ID")){
+        echo $strToOutput;
+    }
+    else{
+        echo "<script>";
+        echo "alert(";
+        echo "Error: <br>" . mysqli_error($conn);
+        echo ");";
+        echo "</script>";
     }
     
-    $sql = "UPDATE pedidos SET entregado = '$pedidoACambiar_estadoResultante' WHERE id_pedido = $pedidoACambiar_ID";
-
-    if(!mysqli_query($conn,"UPDATE pedidos SET entregado = '$pedidoACambiar_estadoResultante' WHERE id_pedido = $pedidoACambiar_ID")){
-        echo "Error: <br>" . mysqli_error($conn);
-    }
-    echo "Hola";
-    var_dump($sql);
     exit();
 ?>
